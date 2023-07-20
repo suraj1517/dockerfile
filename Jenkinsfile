@@ -7,13 +7,13 @@ pipeline {
         stage("Clone Code"){
             steps {
                 echo "Cloning the code"
-                git url:"", branch: "main"
+                git url:"https://github.com/suraj1517/dockerfile.git", branch: "main"
             }
         }
         stage("Build"){
             steps {
                 echo "Building the image"
-                sh "docker build -t my-note-app ."
+                sh "docker build -t my-nginx-image ."
 
             }
         }
@@ -24,8 +24,7 @@ pipeline {
                 {
                      
                      sh("curl -u ${dockerHubUser}:${dockerHubPass} https://hub.docker.com/")
-                     sh "docker tag my-note-app surajsalgar/my-note-app:latest"
-                     sh "docker push surajsalgar/my-note-app:latest"
+                     
                      
                 }
             }
