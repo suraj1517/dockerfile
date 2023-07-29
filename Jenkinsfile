@@ -22,10 +22,11 @@ pipeline {
                 echo "Pushing the image to docker hub"
                 withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")])
                 {
-                  
+                     
+                     
                      sh("curl -u ${dockerHubUser}:${dockerHubPass} https://hub.docker.com/")
-                     
-                     
+                     sh "docker tag my-nginx-image surajsalgar/my-note-app"
+                     sh "docker push surajsalgar/my-note-app"
                      
                 }
             }
