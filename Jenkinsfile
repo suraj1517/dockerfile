@@ -25,8 +25,8 @@ pipeline {
                      
                      
                      sh("curl -u ${dockerHubUser}:${dockerHubPass} https://hub.docker.com/")
-                     sh "docker tag my-nginx-image surajsalgar/my-note-app"
-                     sh "docker push surajsalgar/my-note-app"
+                     
+                     sh "docker push surajsalgar/my-note-suraj"
                      
                 }
             }
